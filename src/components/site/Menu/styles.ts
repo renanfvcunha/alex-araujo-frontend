@@ -12,12 +12,10 @@ const useStyles = makeStyles(() => ({
     },
   },
   menuItemMb: {
-    '& a': {
-      color: '#000',
-      textDecoration: 'none',
-      fontSize: 18,
-      fontWeight: 500,
-    },
+    color: '#000',
+    textDecoration: 'none',
+    fontSize: 18,
+    fontWeight: 500,
   },
   container: {
     width: '100%',
@@ -68,6 +66,40 @@ const useStyles = makeStyles(() => ({
     width: 2,
     backgroundColor: '#000',
     margin: '0 16px',
+  },
+  posRelative: {
+    position: 'relative',
+  },
+  imgButtons: {
+    position: 'absolute',
+    bottom: -20,
+    right: '22.5%',
+    display: 'flex',
+  },
+  btnWApp: {
+    width: 70,
+    height: 40,
+    background: 'linear-gradient(to right, #32ba46, #5ddf6e)',
+    borderRadius: 24,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnGetPrice: {
+    width: 175,
+    height: 40,
+    backgroundColor: '#fdfdfd',
+    borderRadius: 24,
+    marginLeft: 8,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    '& span': {
+      color: '#949494',
+      fontSize: 18,
+      fontWeight: 900,
+    },
   },
 }));
 
