@@ -6,6 +6,19 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  menuIcon: {
+    '@media (min-width: 769px)': {
+      display: 'none',
+    },
+  },
+  menuItemMb: {
+    '& a': {
+      color: '#000',
+      textDecoration: 'none',
+      fontSize: 18,
+      fontWeight: 500,
+    },
+  },
   container: {
     width: '100%',
     maxWidth: 1140,
@@ -14,10 +27,14 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
   },
   menu: {
-    width: '75%',
+    width: '100%',
     listStyle: 'none',
     display: 'flex',
     justifyContent: 'center',
+
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
   },
   menuItem: {
     '& a': {
