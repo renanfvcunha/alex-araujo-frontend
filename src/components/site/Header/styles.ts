@@ -15,6 +15,10 @@ const useStyles = makeStyles(() => ({
     height: '100%',
     display: 'flex',
     alignItems: 'center',
+
+    '@media (max-width: 768px)': {
+      justifyContent: 'center',
+    },
   },
   texts: {
     display: 'flex',
