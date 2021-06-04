@@ -1,9 +1,17 @@
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#760403',
+      },
+    },
+  });
+
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles && jssStyles.parentElement) {
@@ -29,7 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <CssBaseline />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
