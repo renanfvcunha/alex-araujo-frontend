@@ -9,6 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       primary: {
         main: '#760403',
       },
+      secondary: {
+        main: '#9e3c3d',
+      },
     },
   });
 

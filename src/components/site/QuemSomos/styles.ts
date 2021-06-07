@@ -1,12 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   section: {
     width: '100vw',
     minHeight: 600,
-    backgroundColor: '#760403',
+    backgroundColor: theme.palette.primary.main,
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
   },
   container: {
