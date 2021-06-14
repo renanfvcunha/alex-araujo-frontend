@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 500,
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: '#ececec',
   },
   container: {
     width: '100%',
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '5%',
     },
   },
-  servicesContainer: {
+  noticesContainer: {
     marginTop: '3rem',
     display: 'flex',
     overflowY: 'auto',
@@ -30,31 +29,36 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '5%',
     },
   },
-  service: {
-    minWidth: 200,
+  notice: {
+    minWidth: 500,
     minHeight: 200,
-    backgroundColor: theme.palette.secondary.main,
-    borderRadius: 32,
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '1rem',
-    marginRight: '2rem',
-    padding: 8,
-  },
-  icon: {
-    width: 72,
-    height: 72,
-    color: '#fff',
     marginBottom: '1rem',
   },
-  text: {
-    fontSize: 28,
-    fontWeight: 500,
-    color: '#fff',
-    textAlign: 'center',
-    lineHeight: '2rem',
+  noticePicture: {
+    width: 200,
+    height: 200,
+    borderRadius: 32,
+  },
+  noticeTitle: {
+    marginLeft: '1.5rem',
+    '& h1': {
+      color: '#434343',
+      fontSize: 24,
+      display: '-webkit-box',
+      lineClamp: 2,
+      boxOrient: 'vertical',
+      overflow: 'hidden',
+    },
+    '& h2': {
+      color: '#5e5e5e',
+      fontSize: 20,
+      fontWeight: '500',
+      display: '-webkit-box',
+      lineClamp: 3,
+      boxOrient: 'vertical',
+      overflow: 'hidden',
+    },
   },
 }));
 

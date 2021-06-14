@@ -13,6 +13,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         main: '#9e3c3d',
       },
     },
+    overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          html: {
+            scrollBehavior: 'smooth',
+          },
+        },
+      },
+    },
   });
 
   useEffect(() => {
@@ -39,8 +48,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
       </Head>
-      <CssBaseline />
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
