@@ -8,8 +8,8 @@ export default function Noticias() {
       <div className={classes.container}>
         <h1 className={classes.sectionTitle}>Notícias</h1>
 
-        <div className={classes.noticesContainer}>
-          <div className={classes.notice}>
+        <ul className={classes.noticesContainer}>
+          <li className={classes.notice}>
             <img
               src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
               alt="Picsum IMG"
@@ -30,8 +30,8 @@ export default function Noticias() {
                 molestiae aperiam, error nisi reprehenderit dolorum.
               </h2>
             </div>
-          </div>
-          <div className={classes.notice}>
+          </li>
+          <li className={classes.notice}>
             <img
               src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
               alt="Picsum IMG"
@@ -52,8 +52,8 @@ export default function Noticias() {
                 molestiae aperiam, error nisi reprehenderit dolorum.
               </h2>
             </div>
-          </div>
-          <div className={classes.notice}>
+          </li>
+          <li className={classes.notice}>
             <img
               src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
               alt="Picsum IMG"
@@ -74,8 +74,8 @@ export default function Noticias() {
                 molestiae aperiam, error nisi reprehenderit dolorum.
               </h2>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
   );

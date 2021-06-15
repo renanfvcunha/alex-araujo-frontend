@@ -16,11 +16,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     overrides: {
       MuiCssBaseline: {
         '@global': {
-          '*': {
-            fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
-          },
           html: {
             scrollBehavior: 'smooth',
+          },
+          body: {
+            fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
           },
         },
       },

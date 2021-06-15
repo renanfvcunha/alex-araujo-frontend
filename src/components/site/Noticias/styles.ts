@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '3rem',
     display: 'flex',
     overflowY: 'auto',
+    listStyle: 'none',
+    paddingLeft: 0,
     '@media (max-width: 768px)': {
       marginLeft: '5%',
     },
