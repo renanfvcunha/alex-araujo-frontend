@@ -1,5 +1,5 @@
 import useStyles from './styles';
-import { QuemSomos as IQuemSomos } from '../../../../typescript/ISitePrincipal';
+import { QuemSomos as IQuemSomos } from '~/typescript/ISitePrincipal';
 
 type QuemSomos = {
   quemSomos: IQuemSomos;

@@ -1,14 +1,16 @@
 import { GetServerSideProps } from 'next';
 
-import Header from '../components/site/Header';
-import Menu from '../components/site/Menu';
-import QuemSomos from '../components/site/QuemSomos';
-import Servicos from '../components/site/Servicos';
-import Noticias from '../components/site/Noticias';
-import AreaDoCliente from '../components/site/AreaDoCliente';
-import ISitePrincipal from '../../typescript/ISitePrincipal';
-import client from '../services/graphql/client';
-import getSiteContent from '../services/graphql/queries/sitePrincipal';
+import Header from '~/components/site/Header';
+import Menu from '~/components/site/Home/Menu';
+import QuemSomos from '~/components/site/Home/QuemSomos';
+import Servicos from '~/components/site/Home/Servicos';
+import Noticias from '~/components/site/Home/Noticias';
+import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
+
+import ISitePrincipal from '~/typescript/ISitePrincipal';
+
+import client from '~/services/graphql/client';
+import getSiteContent from '~/services/graphql/queries/sitePrincipal';
 
 export default function Home({
   sitePrincipal,

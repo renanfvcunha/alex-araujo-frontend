@@ -1,6 +1,6 @@
 import { Description } from '@material-ui/icons';
 
-import { NossosServicos as INossosServicos } from '../../../../typescript/ISitePrincipal';
+import { NossosServicos as INossosServicos } from '~/typescript/ISitePrincipal';
 import useStyles from './styles';
 
 type NossosServicos = {

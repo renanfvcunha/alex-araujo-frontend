@@ -1,4 +1,4 @@
-import { Header as IHeader } from '../../../../typescript/ISitePrincipal';
+import { Header as IHeader } from '~/typescript/ISitePrincipal';
 import useStyles from './styles';
 
 type Header = {
