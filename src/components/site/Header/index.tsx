@@ -1,22 +1,26 @@
-import Image from 'next/image';
-
+import { Header as IHeader } from '../../../../typescript/ISitePrincipal';
 import useStyles from './styles';
 
-export default function Header() {
+type Header = {
+  header: IHeader;
+};
+
+export default function Header({ header }: Header) {
   const classes = useStyles();
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <Image
-          src="/logo.png"
+        <img
+          src={process.env.NEXT_PUBLIC_API_URL + header.logo.url}
           width={95}
           height={95}
-          alt="Logo Alexandre Araújo"
+          alt={header.logo.alternativeText}
         />
+
         <div className={classes.texts}>
-          <h1>Alexandre Araújo</h1>
-          <h2>Consultoria e Contabilidade</h2>
+          <h1>{header.titulo}</h1>
+          <h2>{header.subtitulo}</h2>
         </div>
       </div>
     </header>

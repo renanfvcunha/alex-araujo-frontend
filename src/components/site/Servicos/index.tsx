@@ -1,7 +1,13 @@
 import { Description } from '@material-ui/icons';
+
+import { NossosServicos as INossosServicos } from '../../../../typescript/ISitePrincipal';
 import useStyles from './styles';
 
-export default function Servicos() {
+type NossosServicos = {
+  nossosServicos: INossosServicos;
+};
+
+export default function Servicos({ nossosServicos }: NossosServicos) {
   const classes = useStyles();
 
   return (
@@ -10,44 +16,20 @@ export default function Servicos() {
         <h1 className={classes.sectionTitle}>Nossos Serviços</h1>
 
         <ul className={classes.servicesContainer}>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Assessoria Contábil</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Assessoria Fiscal</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Assessoria Trabalhista</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Abertura de Empresas</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Certificado Digital</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>BPO Financeiro</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>RH Terceirizado</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>Consultoria de Negócios</span>
-          </li>
-          <li className={classes.service}>
-            <Description className={classes.icon} />
-            <span className={classes.text}>
-              Treinamentos - Cursos e Palestras
-            </span>
-          </li>
+          {nossosServicos.servicos.map((servico) => (
+            <li key={servico.id} className={classes.service}>
+              {servico.icone ? (
+                <img
+                  src={process.env.NEXT_PUBLIC_API_URL + servico.icone.url}
+                  alt={servico.icone.alternativeText}
+                  className={classes.icon}
+                />
+              ) : (
+                <Description className={classes.icon} />
+              )}
+              <span className={classes.text}>{servico.servico}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
