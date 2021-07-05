@@ -39,6 +39,11 @@ const getSiteContent = gql`
           servico
         }
       }
+      contato {
+        endereco
+        telefone
+        email
+      }
     }
   }
 `;

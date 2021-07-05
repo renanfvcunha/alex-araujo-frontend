@@ -27,7 +27,7 @@ export default function Home({
       <Servicos nossosServicos={sitePrincipal.nossosServicos} />
       <Noticias />
       <AreaDoCliente />
-      <Contato />
+      <Contato contato={sitePrincipal.contato} />
       <Footer />
     </main>
   );
@@ -39,11 +39,11 @@ export const getStaticProps: GetStaticProps = async () => {
   if (!sitePrincipal) {
     return {
       notFound: true,
-      revalidate: 1 * 60 * 60,
     };
   }
 
   return {
     props: { sitePrincipal },
+    revalidate: 1 * 60 * 60,
   };
 };

@@ -23,23 +23,6 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
     },
   },
-  /* texts: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    '& h1, & h2': {
-      margin: 0,
-      color: '#fff',
-      textTransform: 'uppercase',
-      letterSpacing: 2,
-    },
-    '& h2': {
-      fontSize: 14,
-      fontWeight: 500,
-    },
-  }, */
 }));
 
 export default useStyles;

@@ -34,9 +34,16 @@ export interface NossosServicos {
   }[];
 }
 
+export interface Contato {
+  endereco: string;
+  telefone: string;
+  email: string;
+}
+
 export default interface ISitePrincipal {
   header: Header;
   menu: Menu;
   quemSomos: QuemSomos;
   nossosServicos: NossosServicos;
+  contato: Contato;
 }

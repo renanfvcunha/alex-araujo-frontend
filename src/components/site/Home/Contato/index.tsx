@@ -1,6 +1,12 @@
 import useStyles from './styles';
+import { Contato as IContato } from '~/typescript/ISitePrincipal';
+import masks from '~/utils/masks';
 
-export default function Contato() {
+type Contato = {
+  contato: IContato;
+};
+
+export default function Contato({ contato }: Contato) {
   const classes = useStyles();
 
   return (
@@ -10,15 +16,15 @@ export default function Contato() {
           <h1 className={classes.sectionTitle}>Fale Conosco</h1>
 
           <span className={classes.contactText}>
-            Endereço: avenida avenida avenida
+            Endereço: {contato.endereco}
           </span>
 
           <span className={classes.contactText}>
-            Telefone: 0000 0000 0000 000
+            Telefone: {masks.phoneMask(contato.telefone)}
           </span>
 
-          <a href="mailto:contato@mail.com" className={classes.email}>
-            contato@mail.com
+          <a href={`mailto:${contato.email}`} className={classes.email}>
+            {contato.email}
           </a>
         </div>
       </div>
