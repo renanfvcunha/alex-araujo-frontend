@@ -9,6 +9,11 @@ export interface Header {
   logo: Image;
 }
 
+export interface Menu {
+  imagem: Image;
+  whatsapp: string | null;
+}
+
 export interface QuemSomos {
   textos: {
     titulo: string;
@@ -31,6 +36,7 @@ export interface NossosServicos {
 
 export default interface ISitePrincipal {
   header: Header;
+  menu: Menu;
   quemSomos: QuemSomos;
   nossosServicos: NossosServicos;
 }

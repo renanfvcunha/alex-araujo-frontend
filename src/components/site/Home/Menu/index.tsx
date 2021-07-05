@@ -7,8 +7,14 @@ import { IconButton, Menu as MenuEl, MenuItem } from '@material-ui/core';
 import { Menu as MenuIcon, WhatsApp } from '@material-ui/icons';
 
 import useStyles from './styles';
+import { Menu as IMenu } from '~/typescript/ISitePrincipal';
+import getImageUrl from '~/utils/getImageUrl';
 
-export default function Menu() {
+type Menu = {
+  menu: IMenu;
+};
+
+export default function Menu({ menu }: Menu) {
   const classes = useStyles();
   const router = useRouter();
 
@@ -98,15 +104,25 @@ export default function Menu() {
       </nav>
 
       <div className={clsx(classes.nav, classes.posRelative)}>
-        <Image src="/navPicture.jpg" alt="Picture" width={1140} height={400} />
-        <div className={classes.imgButtons}>
+        <Image
+          src={getImageUrl(menu.imagem.url)}
+          alt={menu.imagem.alternativeText}
+          width={1140}
+          height={400}
+        />
+        <a
+          className={classes.imgButtons}
+          href={`https://wa.me/${menu.whatsapp}`}
+          target="_blank"
+          rel="external noreferrer noopener"
+        >
           <div className={classes.btnWApp}>
             <WhatsApp style={{ color: '#fafafa' }} />
           </div>
           <div className={classes.btnGetPrice}>
             <span>Solicitar Cotação</span>
           </div>
-        </div>
+        </a>
       </div>
     </>
   );

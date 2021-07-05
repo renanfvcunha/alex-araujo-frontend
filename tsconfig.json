@@ -18,6 +18,7 @@
       "~/components/*": ["components/*"],
       "~/typescript/*": ["typescript/*"],
       "~/services/*": ["services/*"],
+      "~/utils/*": ["utils/*"],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

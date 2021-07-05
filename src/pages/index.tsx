@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import Header from '~/components/site/Header';
 import Menu from '~/components/site/Home/Menu';
@@ -20,7 +20,7 @@ export default function Home({
   return (
     <main>
       <Header header={sitePrincipal.header} />
-      <Menu />
+      <Menu menu={sitePrincipal.menu} />
       <QuemSomos quemSomos={sitePrincipal.quemSomos} />
       <Servicos nossosServicos={sitePrincipal.nossosServicos} />
       <Noticias />
@@ -29,12 +29,13 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { sitePrincipal } = await client.request(getSiteContent);
 
   if (!sitePrincipal) {
     return {
       notFound: true,
+      revalidate: 1 * 60 * 60,
     };
   }
 

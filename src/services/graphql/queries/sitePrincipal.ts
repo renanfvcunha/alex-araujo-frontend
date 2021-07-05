@@ -11,6 +11,13 @@ const getSiteContent = gql`
           alternativeText
         }
       }
+      menu {
+        imagem {
+          url
+          alternativeText
+        }
+        whatsapp
+      }
       quemSomos {
         textos {
           titulo
