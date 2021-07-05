@@ -7,6 +7,7 @@ import Servicos from '~/components/site/Home/Servicos';
 import Noticias from '~/components/site/Home/Noticias';
 import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
 import Contato from '~/components/site/Home/Contato';
+import Footer from '~/components/site/Footer';
 
 import ISitePrincipal from '~/typescript/ISitePrincipal';
 
@@ -27,6 +28,7 @@ export default function Home({
       <Noticias />
       <AreaDoCliente />
       <Contato />
+      <Footer />
     </main>
   );
 }
