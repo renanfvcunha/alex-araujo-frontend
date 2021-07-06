@@ -1,7 +1,4 @@
-export interface Image {
-  url: string;
-  alternativeText: string;
-}
+import Image from './IImage';
 
 export interface Header {
   titulo: string;

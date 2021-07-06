@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   section: {
     width: '100vw',
-    minHeight: 500,
     display: 'flex',
     justifyContent: 'center',
+    flex: 1,
   },
   container: {
     width: '100%',

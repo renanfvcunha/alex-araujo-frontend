@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  header: {
+  footer: {
     width: '100vw',
-    height: 130,
+    height: 100,
     backgroundColor: theme.palette.primary.main,
     display: 'flex',
     alignItems: 'center',
