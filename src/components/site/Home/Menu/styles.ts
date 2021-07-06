@@ -75,6 +75,7 @@ const useStyles = makeStyles(() => ({
     bottom: -20,
     right: '22.5%',
     display: 'flex',
+    textDecoration: 'none',
   },
   btnWApp: {
     width: 70,

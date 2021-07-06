@@ -1,11 +1,11 @@
 {
-  "name": "frontend",
+  "name": "alexandre-araujo-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next build && next start"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
