@@ -58,24 +58,24 @@ export default function Menu({ menu }: Menu) {
           >
             Serviços
           </MenuItem>
-          <MenuItem
+          {/* <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#noticias')}
           >
             Notícias
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#contato')}
           >
             Contato
           </MenuItem>
-          <MenuItem
+          {/* <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#area-cliente')}
           >
             Área do Cliente
-          </MenuItem>
+          </MenuItem> */}
         </MenuEl>
 
         <div className={classes.container}>
@@ -87,18 +87,18 @@ export default function Menu({ menu }: Menu) {
             <li className={classes.menuItem}>
               <Link href="#servicos">Serviços</Link>
             </li>
-            <li className={classes.menuDivider} />
+            {/* <li className={classes.menuDivider} />
             <li className={classes.menuItem}>
               <Link href="#noticias">Notícias</Link>
-            </li>
+            </li> */}
             <li className={classes.menuDivider} />
             <li className={classes.menuItem}>
               <Link href="#contato">Contato</Link>
             </li>
-            <li className={classes.menuDivider} />
+            {/* <li className={classes.menuDivider} />
             <li className={clsx(classes.menuItem, classes.clientArea)}>
               <Link href="#area-cliente">Área do Cliente</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

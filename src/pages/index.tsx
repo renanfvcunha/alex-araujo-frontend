@@ -4,8 +4,8 @@ import Header from '~/components/site/Header';
 import Menu from '~/components/site/Home/Menu';
 import QuemSomos from '~/components/site/Home/QuemSomos';
 import Servicos from '~/components/site/Home/Servicos';
-import Noticias from '~/components/site/Home/Noticias';
-import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
+// import Noticias from '~/components/site/Home/Noticias';
+// import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
 import Contato from '~/components/site/Home/Contato';
 import Footer from '~/components/site/Footer';
 
@@ -25,8 +25,8 @@ export default function Home({
       <Menu menu={sitePrincipal.menu} />
       <QuemSomos quemSomos={sitePrincipal.quemSomos} />
       <Servicos nossosServicos={sitePrincipal.nossosServicos} />
-      <Noticias />
-      <AreaDoCliente />
+      {/* <Noticias />
+      <AreaDoCliente /> */}
       <Contato contato={sitePrincipal.contato} />
       <Footer />
     </main>
