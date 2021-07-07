@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -24,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
   notice: {
     display: 'flex',
     marginBottom: '2rem',
+    cursor: 'pointer',
+    '& :hover': {
+      '& h1': {
+        color: theme.palette.primary.main,
+        transition: 'all ease 0.2s',
+      },
+      '& span': {
+        color: '#000',
+        transition: 'all ease 0.2s',
+      },
+    },
     '@media (max-width: 768px)': {
       flexDirection: 'column',
     },
@@ -44,9 +56,52 @@ const useStyles = makeStyles((theme) => ({
     '& h1, span': {
       marginBottom: '0.5rem',
     },
+    '& span': {
+      color: grey[800],
+    },
     '@media (max-width: 768px)': {
       marginLeft: 0,
       marginTop: '0.5rem',
+    },
+  },
+  pagination: {
+    display: 'flex',
+    listStyle: 'none',
+    height: 40,
+    border: '1px solid black',
+    borderRadius: 5,
+    width: 'fit-content',
+    alignItems: 'center',
+    padding: 0,
+    marginTop: 40,
+  },
+  pageLink: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+    padding: '0 10px',
+    cursor: 'pointer',
+
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
+  activeLink: {
+    fontWeight: 'bold',
+    pointerEvents: 'none',
+  },
+  previousLink: {
+    marginLeft: '1rem',
+    '&:hover': {
+      cursor: 'pointer',
+      textDecoration: 'underline',
+    },
+  },
+  nextLink: {
+    marginRight: '1rem',
+    '&:hover': {
+      cursor: 'pointer',
+      textDecoration: 'underline',
     },
   },
 }));

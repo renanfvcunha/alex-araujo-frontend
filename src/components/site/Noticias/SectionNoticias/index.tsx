@@ -1,145 +1,77 @@
 /* eslint-disable import/no-duplicates */
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import Link from 'next/link';
+import Head from 'next/head';
+import Paginate from 'react-paginate';
 
 import useStyles from './styles';
-import Noticia from '~/typescript/INoticia';
+import Noticia, { NoticiasConnection } from '~/typescript/INoticia';
 import getImageUrl from '~/utils/getImageUrl';
 
 type Props = {
   noticias: Noticia[];
+  noticiasConnection: NoticiasConnection;
 };
 
-export default function SectionNoticias({ noticias }: Props) {
+export default function SectionNoticias({
+  noticias,
+  noticiasConnection,
+}: Props) {
   const classes = useStyles();
 
+  const paginationHandler = () => {
+    alert('clicou');
+  };
+
   return (
-    <section className={classes.section}>
-      <div className={classes.container}>
-        <h1 className={classes.sectionTitle}>Notícias</h1>
+    <>
+      <Head>
+        <title>Notícias - Alexandre Araújo | Consultoria e Contabilidade</title>
+      </Head>
+      <section className={classes.section}>
+        <div className={classes.container}>
+          <h1 className={classes.sectionTitle}>Notícias</h1>
 
-        {noticias.map((noticia) => (
-          <div className={classes.notice}>
-            <img
-              src={getImageUrl(noticia.capa.formats.thumbnail.url)}
-              alt={noticia.capa.alternativeText}
-              className={classes.thumb}
-            />
+          {noticias.map((noticia) => (
+            <Link key={noticia.id} href={`/noticias/${noticia.slug}`}>
+              <div className={classes.notice}>
+                <img
+                  src={getImageUrl(noticia.capa.formats.thumbnail.url)}
+                  alt={noticia.capa.alternativeText}
+                  className={classes.thumb}
+                />
 
-            <div className={classes.texts}>
-              <h1>{noticia.titulo}</h1>
-              <span>{noticia.resumo}</span>
-              <small>
-                {formatDistanceToNow(new Date(noticia.published_at), {
-                  locale: ptBR,
-                })}
-              </small>
-            </div>
-          </div>
-        ))}
+                <div className={classes.texts}>
+                  <h1>{noticia.titulo}</h1>
+                  <span>{noticia.resumo}</span>
+                  <small>
+                    Publicado há&nbsp;
+                    {formatDistanceToNow(new Date(noticia.published_at), {
+                      locale: ptBR,
+                    })}
+                  </small>
+                </div>
+              </div>
+            </Link>
+          ))}
 
-        {/* <div className={classes.notice}>
-          <img
-            src="https://picsum.photos/170/100"
-            alt="Some Img"
-            className={classes.thumb}
+          <Paginate
+            previousLabel="Notícias Recentes"
+            nextLabel="Notícias Anteriores"
+            breakLabel="..."
+            pageCount={2}
+            pageRangeDisplayed={1}
+            marginPagesDisplayed={2}
+            onPageChange={paginationHandler}
+            containerClassName={classes.pagination}
+            activeLinkClassName={classes.activeLink}
+            pageLinkClassName={classes.pageLink}
+            previousLinkClassName={classes.previousLink}
+            nextLinkClassName={classes.nextLink}
           />
-
-          <div className={classes.texts}>
-            <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-              odit officiis doloremque reprehenderit labore, provident
-              blanditiis.
-            </h1>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magni
-              porro cum nihil est hic ducimus, consequuntur provident blanditiis
-              rerum nobis, rem quidem nesciunt reiciendis!
-            </span>
-            <small>
-              {formatDistanceToNow(subDays(new Date(), 45), {
-                locale: ptBR,
-              })}
-            </small>
-          </div>
         </div>
-
-        <div className={classes.notice}>
-          <img
-            src="https://picsum.photos/170/100"
-            alt="Some Img"
-            className={classes.thumb}
-          />
-
-          <div className={classes.texts}>
-            <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-              quam voluptatum dolorum quo provident laborum maxime excepturi
-              deserunt sequi pariatur?
-            </h1>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magni
-              porro cum nihil est hic ducimus, consequuntur provident blanditiis
-              rerum nobis, rem quidem nesciunt reiciendis!
-            </span>
-            <small>
-              {formatDistanceToNow(subDays(new Date(), 45), {
-                locale: ptBR,
-              })}
-            </small>
-          </div>
-        </div>
-
-        <div className={classes.notice}>
-          <img
-            src="https://picsum.photos/170/100"
-            alt="Some Img"
-            className={classes.thumb}
-          />
-
-          <div className={classes.texts}>
-            <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              accusantium labore quod ab quasi fuga.
-            </h1>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magni
-              porro cum nihil est hic ducimus, consequuntur provident blanditiis
-              rerum nobis, rem quidem nesciunt reiciendis!
-            </span>
-            <small>
-              {formatDistanceToNow(subDays(new Date(), 45), {
-                locale: ptBR,
-              })}
-            </small>
-          </div>
-        </div>
-
-        <div className={classes.notice}>
-          <img
-            src="https://picsum.photos/170/100"
-            alt="Some Img"
-            className={classes.thumb}
-          />
-
-          <div className={classes.texts}>
-            <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              aliquid in repellat tempora nam impedit!
-            </h1>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magni
-              porro cum nihil est hic ducimus, consequuntur provident blanditiis
-              rerum nobis, rem quidem nesciunt reiciendis!
-            </span>
-            <small>
-              {formatDistanceToNow(subDays(new Date(), 45), {
-                locale: ptBR,
-              })}
-            </small>
-          </div>
-        </div> */}
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
