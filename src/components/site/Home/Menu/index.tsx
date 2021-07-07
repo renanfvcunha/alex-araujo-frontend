@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { IconButton, Menu as MenuEl, MenuItem } from '@material-ui/core';
@@ -104,7 +103,7 @@ export default function Menu({ menu }: Menu) {
       </nav>
 
       <div className={clsx(classes.nav, classes.posRelative)}>
-        <Image
+        <img
           src={getImageUrl(menu.imagem.url)}
           alt={menu.imagem.alternativeText}
           width={1140}
