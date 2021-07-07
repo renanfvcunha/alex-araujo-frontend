@@ -24,8 +24,8 @@ export default function QuemSomos({ quemSomos }: QuemSomos) {
           </div>
           <div className={classes.video}>
             <iframe
-              src="https://www.youtube.com/embed/6stlCkUDG_s"
-              title="YouTube video player"
+              src={quemSomos.video.link}
+              title={quemSomos.video.titulo}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

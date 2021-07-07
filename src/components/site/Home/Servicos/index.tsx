@@ -1,6 +1,7 @@
 import { Description } from '@material-ui/icons';
 
 import { NossosServicos as INossosServicos } from '~/typescript/ISitePrincipal';
+import getImageUrl from '~/utils/getImageUrl';
 import useStyles from './styles';
 
 type NossosServicos = {
@@ -20,7 +21,7 @@ export default function Servicos({ nossosServicos }: NossosServicos) {
             <li key={servico.id} className={classes.service}>
               {servico.icone ? (
                 <img
-                  src={process.env.NEXT_PUBLIC_API_URL + servico.icone.url}
+                  src={getImageUrl(servico.icone.url)}
                   alt={servico.icone.alternativeText}
                   className={classes.icon}
                 />
