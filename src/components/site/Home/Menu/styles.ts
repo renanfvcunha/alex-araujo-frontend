@@ -70,10 +70,15 @@ const useStyles = makeStyles(() => ({
   posRelative: {
     position: 'relative',
   },
+  mainImage: {
+    width: '100%',
+    maxWidth: 1140,
+    height: 'auto',
+    maxHeight: 400,
+  },
   imgButtons: {
     position: 'absolute',
     bottom: -20,
-    right: '22.5%',
     display: 'flex',
     textDecoration: 'none',
   },

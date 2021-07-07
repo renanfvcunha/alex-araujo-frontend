@@ -24,8 +24,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '1.5rem',
     fontSize: 48,
     fontWeight: 900,
+
     '@media (max-width: 768px)': {
       marginLeft: '5%',
+      padding: '20px 20px',
     },
   },
   contactText: {
@@ -33,12 +35,22 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     color: '#949494',
     marginBottom: '0.5rem',
+
+    '@media (max-width: 768px)': {
+      fontSize: 20,
+      marginLeft: '5%',
+    },
   },
   email: {
     fontSize: 32,
     fontWeight: 500,
     color: theme.palette.secondary.main,
     textDecoration: 'none',
+
+    '@media (max-width: 768px)': {
+      fontSize: 20,
+      marginLeft: '5%',
+    },
   },
 }));
 

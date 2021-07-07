@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 500,
       color: '#fff',
     },
+    '@media (max-width: 768px)': {
+      marginLeft: '5%',
+    },
   },
 }));
 

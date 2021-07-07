@@ -106,8 +106,7 @@ export default function Menu({ menu }: Menu) {
         <img
           src={getImageUrl(menu.imagem.url)}
           alt={menu.imagem.alternativeText}
-          width={1140}
-          height={400}
+          className={classes.mainImage}
         />
         <a
           className={classes.imgButtons}
