@@ -1,3 +1,4 @@
+import { useState, useMemo, useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 
 import Header from '~/components/site/Header';
@@ -17,32 +18,52 @@ type Props = {
   sitePrincipal: ISitePrincipal;
   noticias: Noticia[];
   noticiasConnection: NoticiasConnection;
+  page: string;
+  perPage: number;
 };
 
 export default function Noticias({
   sitePrincipal,
   noticias,
   noticiasConnection,
+  page,
+  perPage,
 }: Props) {
   const classes = useStyles();
+
+  const [initialPage, setInitialPage] = useState<number>();
+  const pageCount = useMemo(() => {
+    return Math.ceil(noticiasConnection.aggregate.totalCount / perPage);
+  }, [noticiasConnection.aggregate.totalCount, perPage]);
+
+  useEffect(() => {
+    setInitialPage(Number(page));
+  }, [page]);
 
   return (
     <main className={classes.main}>
       <Header header={sitePrincipal.header} />
-      <SectionNoticias
-        noticias={noticias}
-        noticiasConnection={noticiasConnection}
-      />
+      {initialPage && (
+        <SectionNoticias
+          noticias={noticias}
+          initialPage={initialPage || 0}
+          pageCount={pageCount}
+          perPage={perPage}
+          totalCount={noticiasConnection.aggregate.totalCount}
+        />
+      )}
       <Footer />
     </main>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const page = query.page || '1';
+  const perPage = 3;
   const { sitePrincipal } = await client.request(getSiteContent);
   const { noticias, noticiasConnection } = await client.request(getNoticias, {
-    limit: 5,
-    start: 0,
+    limit: perPage,
+    start: (Number(page) - 1) * perPage,
   });
 
   if (!sitePrincipal || !noticias) {
@@ -52,6 +73,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 
   return {
-    props: { sitePrincipal, noticias, noticiasConnection },
+    props: { sitePrincipal, noticias, noticiasConnection, page, perPage },
   };
 };

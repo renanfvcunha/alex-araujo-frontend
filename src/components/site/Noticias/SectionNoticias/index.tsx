@@ -3,25 +3,39 @@ import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Paginate from 'react-paginate';
 
 import useStyles from './styles';
-import Noticia, { NoticiasConnection } from '~/typescript/INoticia';
+import Noticia from '~/typescript/INoticia';
 import getImageUrl from '~/utils/getImageUrl';
 
 type Props = {
   noticias: Noticia[];
-  noticiasConnection: NoticiasConnection;
+  initialPage: number;
+  pageCount: number;
+  perPage: number;
+  totalCount: number;
 };
 
 export default function SectionNoticias({
   noticias,
-  noticiasConnection,
+  initialPage,
+  pageCount,
+  perPage,
+  totalCount,
 }: Props) {
   const classes = useStyles();
+  const router = useRouter();
 
-  const paginationHandler = () => {
-    alert('clicou');
+  const paginationHandler = (page: { selected: number }) => {
+    const currentQuery = { ...router.query };
+    currentQuery.page = (page.selected + 1).toString();
+
+    router.push({
+      pathname: router.pathname,
+      query: currentQuery,
+    });
   };
 
   return (
@@ -35,7 +49,7 @@ export default function SectionNoticias({
 
           {noticias.map((noticia) => (
             <Link key={noticia.id} href={`/noticias/${noticia.slug}`}>
-              <div className={classes.notice}>
+              <a className={classes.notice}>
                 <img
                   src={getImageUrl(noticia.capa.formats.thumbnail.url)}
                   alt={noticia.capa.alternativeText}
@@ -52,24 +66,27 @@ export default function SectionNoticias({
                     })}
                   </small>
                 </div>
-              </div>
+              </a>
             </Link>
           ))}
 
-          <Paginate
-            previousLabel="Notícias Recentes"
-            nextLabel="Notícias Anteriores"
-            breakLabel="..."
-            pageCount={2}
-            pageRangeDisplayed={1}
-            marginPagesDisplayed={2}
-            onPageChange={paginationHandler}
-            containerClassName={classes.pagination}
-            activeLinkClassName={classes.activeLink}
-            pageLinkClassName={classes.pageLink}
-            previousLinkClassName={classes.previousLink}
-            nextLinkClassName={classes.nextLink}
-          />
+          {totalCount > perPage && (
+            <Paginate
+              previousLabel="Notícias Recentes"
+              nextLabel="Notícias Anteriores"
+              breakLabel="..."
+              pageCount={pageCount}
+              initialPage={initialPage > 1 ? initialPage - 1 : undefined}
+              pageRangeDisplayed={1}
+              marginPagesDisplayed={2}
+              onPageChange={paginationHandler}
+              containerClassName={classes.pagination}
+              activeLinkClassName={classes.activeLink}
+              pageLinkClassName={classes.pageLink}
+              previousLinkClassName={classes.previousLink}
+              nextLinkClassName={classes.nextLink}
+            />
+          )}
         </div>
       </section>
     </>

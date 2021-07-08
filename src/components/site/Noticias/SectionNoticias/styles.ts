@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   notice: {
     display: 'flex',
     marginBottom: '2rem',
-    cursor: 'pointer',
+    textDecoration: 'none',
     '& :hover': {
       '& h1': {
         color: theme.palette.primary.main,
@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '& span': {
       color: grey[800],
+    },
+    '& small': {
+      color: '#000',
     },
     '@media (max-width: 768px)': {
       marginLeft: 0,
@@ -96,6 +99,8 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
       textDecoration: 'underline',
     },
+    color: theme.palette.primary.main,
+    fontWeight: 500,
   },
   nextLink: {
     marginRight: '1rem',
@@ -103,6 +108,8 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
       textDecoration: 'underline',
     },
+    color: theme.palette.primary.main,
+    fontWeight: 500,
   },
 }));
 
