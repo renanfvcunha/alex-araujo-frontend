@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 900,
     '@media (max-width: 768px)': {
       marginLeft: '5%',
+      fontSize: 36,
     },
   },
   servicesContainer: {
@@ -44,12 +45,22 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '1rem',
     marginRight: '2rem',
     padding: 8,
+
+    '@media (max-width: 768px)': {
+      minWidth: 'unset',
+      minHeight: 'unset',
+    },
   },
   icon: {
     width: 72,
     height: 72,
     color: '#fff',
     marginBottom: '1rem',
+
+    '@media (max-width: 768px)': {
+      width: 48,
+      height: 48,
+    },
   },
   text: {
     fontSize: 28,
@@ -57,6 +68,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     textAlign: 'center',
     lineHeight: '2rem',
+
+    '@media (max-width: 768px)': {
+      fontSize: 18,
+    },
   },
 }));
 

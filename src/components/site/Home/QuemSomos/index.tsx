@@ -22,15 +22,10 @@ export default function QuemSomos({ quemSomos }: QuemSomos) {
               dangerouslySetInnerHTML={{ __html: quemSomos.textos.texto }}
             />
           </div>
-          <div className={classes.video}>
-            <iframe
-              src="https://www.youtube.com/embed/6stlCkUDG_s"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <div
+            className={classes.video}
+            dangerouslySetInnerHTML={{ __html: quemSomos.video }}
+          />
         </div>
       </div>
     </section>

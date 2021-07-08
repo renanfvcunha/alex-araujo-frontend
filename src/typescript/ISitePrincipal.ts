@@ -17,10 +17,7 @@ export interface QuemSomos {
     subtitulo: string;
     texto: string;
   };
-  video: {
-    titulo: string;
-    link: string;
-  };
+  video: string;
 }
 
 export interface NossosServicos {

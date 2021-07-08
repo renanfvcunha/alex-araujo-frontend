@@ -24,10 +24,7 @@ const getSiteContent = gql`
           subtitulo
           texto
         }
-        video {
-          titulo
-          link
-        }
+        video
       }
       nossosServicos {
         servicos {
