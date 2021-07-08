@@ -1,6 +1,8 @@
 import useStyles from './styles';
 import { QuemSomos as IQuemSomos } from '~/typescript/ISitePrincipal';
 
+import parseInnerHtml from '~/utils/parseInnerHtml';
+
 type QuemSomos = {
   quemSomos: IQuemSomos;
 };
@@ -19,7 +21,9 @@ export default function QuemSomos({ quemSomos }: QuemSomos) {
             </div>
             <div
               className={classes.content}
-              dangerouslySetInnerHTML={{ __html: quemSomos.textos.texto }}
+              dangerouslySetInnerHTML={{
+                __html: parseInnerHtml(quemSomos.textos.texto),
+              }}
             />
           </div>
           <div

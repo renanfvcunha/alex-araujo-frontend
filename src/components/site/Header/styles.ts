@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
     '@media (max-width: 768px)': {
       justifyContent: 'center',
+      marginLeft: '5%',
     },
   },
   texts: {

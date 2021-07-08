@@ -6,7 +6,7 @@ export default interface Noticia {
   slug: string;
   resumo: string;
   capa: Image;
-  published_at: Date;
+  published_at: string;
   conteudo: string;
 }
 

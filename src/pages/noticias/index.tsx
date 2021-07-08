@@ -9,8 +9,7 @@ import ISitePrincipal from '~/typescript/ISitePrincipal';
 import Noticia, { NoticiasConnection } from '~/typescript/INoticia';
 
 import client from '~/services/graphql/client';
-import getSiteContent from '~/services/graphql/queries/sitePrincipal';
-import { getNoticias } from '~/services/graphql/queries/noticias';
+import { getHeader, getNoticias } from '~/services/graphql/queries/noticias';
 
 import useStyles from '../styles';
 
@@ -59,8 +58,8 @@ export default function Noticias({
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const page = query.page || '1';
-  const perPage = 3;
-  const { sitePrincipal } = await client.request(getSiteContent);
+  const perPage = 5;
+  const { sitePrincipal } = await client.request(getHeader);
   const { noticias, noticiasConnection } = await client.request(getNoticias, {
     limit: perPage,
     start: (Number(page) - 1) * perPage,
