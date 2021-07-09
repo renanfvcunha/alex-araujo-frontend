@@ -11,7 +11,7 @@ import INoticia from '~/typescript/INoticia';
 import client from '~/services/graphql/client';
 import { getHeader, getNoticia } from '~/services/graphql/queries/noticias';
 
-import useStyles from '../styles';
+import useStyles from '../../styles';
 import getImageUrl from '~/utils/getImageUrl';
 
 type Props = {

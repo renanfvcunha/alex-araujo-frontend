@@ -12,7 +12,7 @@ import Noticia, { NoticiasConnection } from '~/typescript/INoticia';
 import client from '~/services/graphql/client';
 import { getHeader, getNoticias } from '~/services/graphql/queries/noticias';
 
-import useStyles from '../styles';
+import useStyles from '../../styles';
 import getImageUrl from '~/utils/getImageUrl';
 
 type Props = {
