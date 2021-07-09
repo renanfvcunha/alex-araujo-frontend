@@ -9,6 +9,7 @@ const getSiteContent = gql`
         logo {
           url
           alternativeText
+          formats
         }
       }
       menu {

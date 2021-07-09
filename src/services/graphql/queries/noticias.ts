@@ -9,6 +9,7 @@ export const getHeader = gql`
         logo {
           url
           alternativeText
+          formats
         }
       }
     }
@@ -45,6 +46,7 @@ export const getNoticia = gql`
       capa {
         url
         alternativeText
+        formats
       }
       conteudo
       published_at

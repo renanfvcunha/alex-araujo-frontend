@@ -1,6 +1,14 @@
+import Link from 'next/link';
 import useStyles from './styles';
 
-export default function Noticias() {
+import INoticia from '~/typescript/INoticia';
+import getImageUrl from '~/utils/getImageUrl';
+
+type Props = {
+  noticias: INoticia[];
+};
+
+export default function Noticias({ noticias }: Props) {
   const classes = useStyles();
 
   return (
@@ -9,71 +17,27 @@ export default function Noticias() {
         <h1 className={classes.sectionTitle}>Notícias</h1>
 
         <ul className={classes.noticesContainer}>
-          <li className={classes.notice}>
-            <img
-              src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
-              alt="Picsum IMG"
-              className={classes.noticePicture}
-            />
-            <div className={classes.noticeTitle}>
-              <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto laboriosam amet assumenda quia ab expedita?
-              </h1>
-              <h2>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat illum, recusandae eum sapiente ab esse facere culpa
-                labore reprehenderit autem tempora dolores enim consequatur!
-                Mollitia dolorem, aut non consequuntur impedit perferendis
-                accusamus quae eius? Dolor exercitationem, voluptatem voluptates
-                accusantium, praesentium debitis excepturi doloremque tempore
-                molestiae aperiam, error nisi reprehenderit dolorum.
-              </h2>
-            </div>
-          </li>
-          <li className={classes.notice}>
-            <img
-              src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
-              alt="Picsum IMG"
-              className={classes.noticePicture}
-            />
-            <div className={classes.noticeTitle}>
-              <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto laboriosam amet assumenda quia ab expedita?
-              </h1>
-              <h2>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat illum, recusandae eum sapiente ab esse facere culpa
-                labore reprehenderit autem tempora dolores enim consequatur!
-                Mollitia dolorem, aut non consequuntur impedit perferendis
-                accusamus quae eius? Dolor exercitationem, voluptatem voluptates
-                accusantium, praesentium debitis excepturi doloremque tempore
-                molestiae aperiam, error nisi reprehenderit dolorum.
-              </h2>
-            </div>
-          </li>
-          <li className={classes.notice}>
-            <img
-              src="https://i.picsum.photos/id/548/200/200.jpg?hmac=OSCQ-YL2a-5iYm7-5vVwigtt78bNIZFxNRaWP8pZ_bw"
-              alt="Picsum IMG"
-              className={classes.noticePicture}
-            />
-            <div className={classes.noticeTitle}>
-              <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto laboriosam amet assumenda quia ab expedita?
-              </h1>
-              <h2>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat illum, recusandae eum sapiente ab esse facere culpa
-                labore reprehenderit autem tempora dolores enim consequatur!
-                Mollitia dolorem, aut non consequuntur impedit perferendis
-                accusamus quae eius? Dolor exercitationem, voluptatem voluptates
-                accusantium, praesentium debitis excepturi doloremque tempore
-                molestiae aperiam, error nisi reprehenderit dolorum.
-              </h2>
-            </div>
+          {noticias.map((noticia) => (
+            <Link key={noticia.id} href={`/noticias/${noticia.slug}`}>
+              <a className={classes.textDecNone}>
+                <li className={classes.notice}>
+                  <img
+                    src={getImageUrl(noticia.capa.formats.thumbnail.url)}
+                    alt={noticia.capa.alternativeText}
+                    className={classes.noticePicture}
+                  />
+                  <div className={classes.noticeTitle}>
+                    <h1>{noticia.titulo}</h1>
+                    <h2>{noticia.resumo}</h2>
+                  </div>
+                </li>
+              </a>
+            </Link>
+          ))}
+          <li style={{ alignSelf: 'center', minWidth: 100 }}>
+            <Link href="/noticias">
+              <a className={classes.more}>Ver Mais</a>
+            </Link>
           </li>
         </ul>
       </div>

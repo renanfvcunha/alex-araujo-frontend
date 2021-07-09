@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Head from 'next/head';
+import Seo from '~/components/site/Seo';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = createMuiTheme({
@@ -37,20 +38,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Alexandre Araújo | Consultoria e Contabilidade</title>
         <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Consultoria e Contabilidade em Teresina - PI"
-        />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
       </Head>
+      <Seo
+        metaTitle="Alexandre Araújo - Consultoria e Contabilidade"
+        metaDescription="Serviços de Contabilidade em Geral. Trabalhamos com Compromisso visando o Sucesso da Sua Empresa. Teresina - PI"
+      />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />

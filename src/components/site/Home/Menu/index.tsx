@@ -57,12 +57,12 @@ export default function Menu({ menu }: Menu) {
           >
             Serviços
           </MenuItem>
-          {/* <MenuItem
+          <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#noticias')}
           >
             Notícias
-          </MenuItem> */}
+          </MenuItem>
           <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#contato')}
@@ -86,10 +86,10 @@ export default function Menu({ menu }: Menu) {
             <li className={classes.menuItem}>
               <Link href="#servicos">Serviços</Link>
             </li>
-            {/* <li className={classes.menuDivider} />
+            <li className={classes.menuDivider} />
             <li className={classes.menuItem}>
               <Link href="#noticias">Notícias</Link>
-            </li> */}
+            </li>
             <li className={classes.menuDivider} />
             <li className={classes.menuItem}>
               <Link href="#contato">Contato</Link>

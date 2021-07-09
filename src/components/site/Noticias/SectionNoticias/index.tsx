@@ -2,7 +2,6 @@
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Link from 'next/link';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Paginate from 'react-paginate';
 
@@ -40,9 +39,6 @@ export default function SectionNoticias({
 
   return (
     <>
-      <Head>
-        <title>Notícias - Alexandre Araújo | Consultoria e Contabilidade</title>
-      </Head>
       <section className={classes.section}>
         <div className={classes.container}>
           <h1 className={classes.sectionTitle}>Notícias</h1>

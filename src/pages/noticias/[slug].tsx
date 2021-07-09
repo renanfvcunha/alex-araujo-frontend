@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next';
 import Header from '~/components/site/Header';
 import Noticia from '~/components/site/Noticias/Noticia';
 import Footer from '~/components/site/Footer';
+import Seo from '~/components/site/Seo';
 
 import { Header as IHeader } from '~/typescript/ISitePrincipal';
 import INoticia from '~/typescript/INoticia';
@@ -11,6 +12,7 @@ import client from '~/services/graphql/client';
 import { getHeader, getNoticia } from '~/services/graphql/queries/noticias';
 
 import useStyles from '../styles';
+import getImageUrl from '~/utils/getImageUrl';
 
 type Props = {
   header: IHeader;
@@ -21,11 +23,19 @@ export default function Slug({ header, noticia }: Props) {
   const classes = useStyles();
 
   return (
-    <main className={classes.main}>
-      <Header header={header} />
-      <Noticia noticia={noticia} />
-      <Footer />
-    </main>
+    <>
+      <Seo
+        metaTitle={`${noticia.titulo} | Alexandre Araújo - Consultoria e Contabilidade`}
+        metaDescription={noticia.resumo}
+        shareImage={getImageUrl(noticia.capa.formats.thumbnail.url)}
+        article
+      />
+      <main className={classes.main}>
+        <Header header={header} />
+        <Noticia noticia={noticia} />
+        <Footer />
+      </main>
+    </>
   );
 }
 

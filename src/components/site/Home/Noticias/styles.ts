@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 900,
     '@media (max-width: 768px)': {
       marginLeft: '5%',
+      fontSize: 36,
     },
   },
   noticesContainer: {
@@ -31,16 +32,36 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '5%',
     },
   },
+  textDecNone: {
+    textDecoration: 'none',
+  },
   notice: {
     minWidth: 500,
     minHeight: 200,
     display: 'flex',
     marginBottom: '1rem',
+    marginRight: '1rem',
+
+    '& :hover': {
+      '& h1': {
+        color: '#000',
+        transition: 'all ease 0.2s',
+      },
+      '& h2': {
+        color: '#434343',
+        transition: 'all ease 0.2s',
+      },
+    },
   },
   noticePicture: {
     width: 200,
     height: 200,
     borderRadius: 32,
+
+    '@media (max-width: 768px)': {
+      width: 150,
+      height: 150,
+    },
   },
   noticeTitle: {
     marginLeft: '1.5rem',
@@ -51,6 +72,10 @@ const useStyles = makeStyles((theme) => ({
       lineClamp: 2,
       boxOrient: 'vertical',
       overflow: 'hidden',
+
+      '@media (max-width: 768px)': {
+        fontSize: 20,
+      },
     },
     '& h2': {
       color: '#5e5e5e',
@@ -60,6 +85,21 @@ const useStyles = makeStyles((theme) => ({
       lineClamp: 3,
       boxOrient: 'vertical',
       overflow: 'hidden',
+
+      '@media (max-width: 768px)': {
+        fontSize: 16,
+      },
+    },
+  },
+  more: {
+    fontSize: 18,
+    fontWeight: 500,
+    textDecoration: 'none',
+    color: theme.palette.secondary.main,
+
+    '&:hover': {
+      color: theme.palette.primary.main,
+      transition: 'all ease 0.2s',
     },
   },
 }));
