@@ -1,6 +1,6 @@
 import { Header as IHeader } from '~/typescript/ISitePrincipal';
 import useStyles from './styles';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Header = {
   header: IHeader;
@@ -13,7 +13,7 @@ export default function Header({ header }: Header) {
     <header className={classes.header}>
       <div className={classes.container}>
         <img
-          src={getImageUrl(header.logo.url)}
+          src={getFileUrl(header.logo.url)}
           width={95}
           height={95}
           alt={header.logo.alternativeText}

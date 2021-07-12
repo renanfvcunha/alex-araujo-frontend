@@ -1,21 +1,5 @@
 import { gql } from 'graphql-request';
 
-export const getHeader = gql`
-  query GET_HEADER {
-    sitePrincipal {
-      header {
-        titulo
-        subtitulo
-        logo {
-          url
-          alternativeText
-          formats
-        }
-      }
-    }
-  }
-`;
-
 export const getNoticias = gql`
   query GET_NOTICIAS($limit: Int, $start: Int) {
     noticias(sort: "created_at:desc", limit: $limit, start: $start) {

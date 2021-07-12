@@ -10,10 +10,11 @@ import { Header as IHeader } from '~/typescript/ISitePrincipal';
 import Noticia, { NoticiasConnection } from '~/typescript/INoticia';
 
 import client from '~/services/graphql/client';
-import { getHeader, getNoticias } from '~/services/graphql/queries/noticias';
+import { getHeader } from '~/services/graphql/queries/sitePrincipal';
+import { getNoticias } from '~/services/graphql/queries/noticias';
 
 import useStyles from '../../styles';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Props = {
   header: IHeader;
@@ -45,7 +46,7 @@ export default function Noticias({
     <>
       <Seo
         metaTitle="Notícias | Alexandre Araújo - Consultoria e Contabilidade"
-        shareImage={getImageUrl(header.logo.formats.thumbnail.url)}
+        shareImage={getFileUrl(header.logo.formats.thumbnail.url)}
       />
       <main className={classes.main}>
         <Header header={header} />

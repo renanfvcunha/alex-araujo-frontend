@@ -17,7 +17,7 @@ import client from '~/services/graphql/client';
 import getSiteContent from '~/services/graphql/queries/sitePrincipal';
 import { getNoticias } from '~/services/graphql/queries/noticias';
 
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Props = {
   sitePrincipal: ISitePrincipal;
@@ -28,9 +28,7 @@ export default function Home({ sitePrincipal, noticias }: Props) {
   return (
     <>
       <Seo
-        shareImage={getImageUrl(
-          sitePrincipal.header.logo.formats.thumbnail.url
-        )}
+        shareImage={getFileUrl(sitePrincipal.header.logo.formats.thumbnail.url)}
       />
       <main>
         <Header header={sitePrincipal.header} />

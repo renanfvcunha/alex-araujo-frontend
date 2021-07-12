@@ -7,7 +7,7 @@ import Paginate from 'react-paginate';
 
 import useStyles from './styles';
 import Noticia from '~/typescript/INoticia';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Props = {
   noticias: Noticia[];
@@ -47,7 +47,7 @@ export default function SectionNoticias({
             <Link key={noticia.id} href={`/noticias/${noticia.slug}`}>
               <a className={classes.notice}>
                 <img
-                  src={getImageUrl(noticia.capa.formats.thumbnail.url)}
+                  src={getFileUrl(noticia.capa.formats.thumbnail.url)}
                   alt={noticia.capa.alternativeText}
                   className={classes.thumb}
                 />

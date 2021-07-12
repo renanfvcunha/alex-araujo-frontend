@@ -1,13 +1,15 @@
 import { useState, FormEvent } from 'react';
 import { Button, TextField } from '@material-ui/core';
 
-import useStyles from './styles';
 import client from '~/services/graphql/client';
 import { authentication } from '~/services/graphql/queries/cliente';
+
+import useStyles from './styles';
 import swAlert from '~/utils/alert';
 
 export default function AreaDoCliente() {
   const classes = useStyles();
+
   const [cnpj, setCnpj] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -20,11 +22,9 @@ export default function AreaDoCliente() {
         senha,
       });
 
-      localStorage.setItem(
-        'alexandreAraujo@Auth:client',
-        JSON.stringify(auth.cliente)
-      );
       localStorage.setItem('alexandreAraujo@Auth:token', auth.token);
+
+      window.open('/clientes', '_blank');
     } catch (err) {
       switch (err.response.errors[0].message) {
         case 'fieldsMismatch':

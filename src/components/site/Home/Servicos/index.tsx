@@ -1,7 +1,7 @@
 import { Description } from '@material-ui/icons';
 
 import { NossosServicos as INossosServicos } from '~/typescript/ISitePrincipal';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 import useStyles from './styles';
 
 type NossosServicos = {
@@ -21,7 +21,7 @@ export default function Servicos({ nossosServicos }: NossosServicos) {
             <li key={servico.id} className={classes.service}>
               {servico.icone ? (
                 <img
-                  src={getImageUrl(servico.icone.url)}
+                  src={getFileUrl(servico.icone.url)}
                   alt={servico.icone.alternativeText}
                   className={classes.icon}
                 />

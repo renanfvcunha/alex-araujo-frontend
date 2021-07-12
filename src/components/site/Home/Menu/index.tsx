@@ -7,7 +7,7 @@ import { Menu as MenuIcon, WhatsApp } from '@material-ui/icons';
 
 import useStyles from './styles';
 import { Menu as IMenu } from '~/typescript/ISitePrincipal';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Menu = {
   menu: IMenu;
@@ -104,7 +104,7 @@ export default function Menu({ menu }: Menu) {
 
       <div className={clsx(classes.nav, classes.posRelative)}>
         <img
-          src={getImageUrl(menu.imagem.url)}
+          src={getFileUrl(menu.imagem.url)}
           alt={menu.imagem.alternativeText}
           className={classes.mainImage}
         />

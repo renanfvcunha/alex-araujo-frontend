@@ -2,7 +2,7 @@ import Link from 'next/link';
 import useStyles from './styles';
 
 import INoticia from '~/typescript/INoticia';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Props = {
   noticias: INoticia[];
@@ -22,7 +22,7 @@ export default function Noticias({ noticias }: Props) {
               <a className={classes.textDecNone}>
                 <li className={classes.notice}>
                   <img
-                    src={getImageUrl(noticia.capa.formats.thumbnail.url)}
+                    src={getFileUrl(noticia.capa.formats.thumbnail.url)}
                     alt={noticia.capa.alternativeText}
                     className={classes.noticePicture}
                   />

@@ -9,10 +9,11 @@ import { Header as IHeader } from '~/typescript/ISitePrincipal';
 import INoticia from '~/typescript/INoticia';
 
 import client from '~/services/graphql/client';
-import { getHeader, getNoticia } from '~/services/graphql/queries/noticias';
+import { getHeader } from '~/services/graphql/queries/sitePrincipal';
+import { getNoticia } from '~/services/graphql/queries/noticias';
 
 import useStyles from '../../styles';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 
 type Props = {
   header: IHeader;
@@ -27,7 +28,7 @@ export default function Slug({ header, noticia }: Props) {
       <Seo
         metaTitle={`${noticia.titulo} | Alexandre Araújo - Consultoria e Contabilidade`}
         metaDescription={noticia.resumo}
-        shareImage={getImageUrl(noticia.capa.formats.thumbnail.url)}
+        shareImage={getFileUrl(noticia.capa.formats.thumbnail.url)}
         article
       />
       <main className={classes.main}>

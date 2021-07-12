@@ -4,13 +4,30 @@ export const authentication = gql`
   mutation AUTH($cnpj: String!, $senha: String!) {
     auth(input: { cnpj: $cnpj, senha: $senha }) {
       token
-      cliente {
-        id
-        nome
-        cnpj
-      }
     }
   }
 `;
 
-export const getFiles = '';
+export const getFiles = gql`
+  query GET_ARQUIVOS {
+    findByToken {
+      nome
+      cnpj
+      logo {
+        url
+        alternativeText
+        formats
+      }
+      arquivos {
+        id
+        arquivo {
+          name
+          url
+        }
+        tipos_de_arquivo {
+          nome
+        }
+      }
+    }
+  }
+`;

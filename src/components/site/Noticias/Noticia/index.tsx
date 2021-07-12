@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
 import INoticia from '~/typescript/INoticia';
-import getImageUrl from '~/utils/getImageUrl';
+import getFileUrl from '~/utils/getFileUrl';
 import parseInnerHtml from '~/utils/parseInnerHtml';
 
 import useStyles from './styles';
@@ -33,7 +33,7 @@ export default function Noticia({ noticia }: Props) {
         <Divider />
 
         <img
-          src={getImageUrl(noticia.capa.url)}
+          src={getFileUrl(noticia.capa.url)}
           alt={noticia.capa.alternativeText}
           className={classes.cover}
         />
