@@ -37,8 +37,14 @@ export default function Clientes({ header }: Props) {
           case 'notSentToken':
             swAlert('error', 'Erro', 'Token Não Enviado!');
             break;
+          case 'invalidToken':
+            swAlert('error', 'Erro', 'Token Inválido!');
+            break;
+          case 'expiredToken':
+            swAlert('error', 'Erro', 'Token Expirado! Faça login novamente.');
+            break;
           default:
-            swAlert('error', 'Erro', 'Erro Desconhecido ao Fazer Login.');
+            swAlert('error', 'Erro', 'Erro Desconhecido ao Listar Arquivos.');
             break;
         }
       }
