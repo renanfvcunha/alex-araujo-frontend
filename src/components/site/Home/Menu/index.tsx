@@ -69,12 +69,12 @@ export default function Menu({ menu }: Menu) {
           >
             Contato
           </MenuItem>
-          {/* <MenuItem
+          <MenuItem
             className={classes.menuItemMb}
             onClick={() => handleCloseMenu('#area-cliente')}
           >
             Área do Cliente
-          </MenuItem> */}
+          </MenuItem>
         </MenuEl>
 
         <div className={classes.container}>
@@ -94,10 +94,10 @@ export default function Menu({ menu }: Menu) {
             <li className={classes.menuItem}>
               <Link href="#contato">Contato</Link>
             </li>
-            {/* <li className={classes.menuDivider} />
+            <li className={classes.menuDivider} />
             <li className={clsx(classes.menuItem, classes.clientArea)}>
               <Link href="#area-cliente">Área do Cliente</Link>
-            </li> */}
+            </li>
           </ul>
         </div>
       </nav>

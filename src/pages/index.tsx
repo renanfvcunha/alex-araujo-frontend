@@ -5,7 +5,7 @@ import Menu from '~/components/site/Home/Menu';
 import QuemSomos from '~/components/site/Home/QuemSomos';
 import Servicos from '~/components/site/Home/Servicos';
 import Noticias from '~/components/site/Home/Noticias';
-// import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
+import AreaDoCliente from '~/components/site/Home/AreaDoCliente';
 import Contato from '~/components/site/Home/Contato';
 import Footer from '~/components/site/Footer';
 import Seo from '~/components/site/Seo';
@@ -38,7 +38,7 @@ export default function Home({ sitePrincipal, noticias }: Props) {
         <QuemSomos quemSomos={sitePrincipal.quemSomos} />
         <Servicos nossosServicos={sitePrincipal.nossosServicos} />
         <Noticias noticias={noticias} />
-        {/* <AreaDoCliente /> */}
+        <AreaDoCliente />
         <Contato contato={sitePrincipal.contato} />
         <Footer />
       </main>

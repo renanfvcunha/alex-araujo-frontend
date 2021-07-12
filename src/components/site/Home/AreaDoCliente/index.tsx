@@ -1,9 +1,44 @@
+import { useState, FormEvent } from 'react';
 import { Button, TextField } from '@material-ui/core';
 
 import useStyles from './styles';
+import client from '~/services/graphql/client';
+import { authentication } from '~/services/graphql/queries/cliente';
+import swAlert from '~/utils/alert';
 
 export default function AreaDoCliente() {
   const classes = useStyles();
+  const [cnpj, setCnpj] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const { auth } = await client.request(authentication, {
+        cnpj,
+        senha,
+      });
+
+      localStorage.setItem(
+        'alexandreAraujo@Auth:client',
+        JSON.stringify(auth.cliente)
+      );
+      localStorage.setItem('alexandreAraujo@Auth:token', auth.token);
+    } catch (err) {
+      switch (err.response.errors[0].message) {
+        case 'fieldsMismatch':
+          swAlert('error', 'Erro', 'Verifique se os campos estão preenchidos.');
+          break;
+        case 'userOrPassMismatch':
+          swAlert('error', 'Erro', 'Usuário E/Ou Senha Incorreto(s).');
+          break;
+        default:
+          swAlert('error', 'Erro', 'Erro Desconhecido ao Fazer Login.');
+          break;
+      }
+    }
+  };
 
   return (
     <section id="area-cliente" className={classes.section}>
@@ -47,6 +82,7 @@ export default function AreaDoCliente() {
               </li>
             </ul>
           </div>
+
           <div className={classes.auth}>
             <div className={classes.authBox}>
               <div className={classes.authArea}>
@@ -54,9 +90,19 @@ export default function AreaDoCliente() {
                   noValidate
                   autoComplete="off"
                   className={classes.authForm}
+                  onSubmit={handleSubmit}
                 >
-                  <TextField label="CNPJ" />
-                  <TextField label="Senha" type="password" />
+                  <TextField
+                    label="CNPJ"
+                    value={cnpj}
+                    onChange={(e) => setCnpj(e.target.value)}
+                  />
+                  <TextField
+                    label="Senha"
+                    type="password"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                  />
                   <Button type="submit" variant="contained" color="primary">
                     Acessar
                   </Button>
