@@ -14,7 +14,7 @@ type Menu = {
 };
 
 export default function Menu({ menu }: Menu) {
-  const classes = useStyles();
+  const classes = useStyles({ bgUrl: getFileUrl(menu.imagem.url) });
   const router = useRouter();
 
   const [ancholEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -102,25 +102,22 @@ export default function Menu({ menu }: Menu) {
         </div>
       </nav>
 
-      <div className={clsx(classes.nav, classes.posRelative)}>
-        <img
-          src={getFileUrl(menu.imagem.url)}
-          alt={menu.imagem.alternativeText}
-          className={classes.mainImage}
-        />
-        <a
-          className={classes.imgButtons}
-          href={`https://wa.me/${menu.whatsapp}`}
-          target="_blank"
-          rel="external noreferrer noopener"
-        >
-          <div className={classes.btnWApp}>
-            <WhatsApp style={{ color: '#fafafa' }} />
-          </div>
-          <div className={classes.btnGetPrice}>
-            <span>Solicitar Cotação</span>
-          </div>
-        </a>
+      <div className={classes.nav}>
+        <div className={classes.mainImage}>
+          <a
+            className={classes.imgButtons}
+            href={`https://wa.me/${menu.whatsapp}`}
+            target="_blank"
+            rel="external noreferrer noopener"
+          >
+            <div className={classes.btnWApp}>
+              <WhatsApp style={{ color: '#fafafa' }} />
+            </div>
+            <div className={classes.btnGetPrice}>
+              <span>Solicitar Cotação</span>
+            </div>
+          </a>
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+type Props = {
+  bgUrl: string;
+};
+
 const useStyles = makeStyles(() => ({
   nav: {
     display: 'flex',
@@ -71,10 +75,14 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
   },
   mainImage: {
-    width: '100%',
-    maxWidth: 1140,
-    height: 'auto',
-    maxHeight: 400,
+    width: 1140,
+    height: 550,
+    backgroundImage: ({ bgUrl }: Props) => `url(${bgUrl})`,
+    backgroundSize: 'cover',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   imgButtons: {
     position: 'absolute',
