@@ -1,5 +1,17 @@
 import { gql } from 'graphql-request';
 
+export const getClientes = gql`
+  query GET_CLIENTES {
+    clientes {
+      nome
+      logo {
+        url
+        alternativeText
+      }
+    }
+  }
+`;
+
 export const authentication = gql`
   mutation AUTH($cnpj: String!, $senha: String!) {
     auth(input: { cnpj: $cnpj, senha: $senha }) {

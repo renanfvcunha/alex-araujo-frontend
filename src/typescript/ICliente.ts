@@ -1,6 +1,7 @@
 import IImage from './IImage';
 
 export default interface ICliente {
+  id: string;
   nome: string;
   cnpj: string;
   logo: IImage | null;
