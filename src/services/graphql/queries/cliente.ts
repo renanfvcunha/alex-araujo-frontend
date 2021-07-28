@@ -30,7 +30,7 @@ export const getFiles = gql`
         alternativeText
         formats
       }
-      arquivos {
+      arquivos(sort: "published_at:desc") {
         id
         arquivo {
           name

@@ -36,33 +36,25 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: '100%',
-    maxWidth: 250,
+    maxWidth: 200,
     height: 'auto',
     alignSelf: 'center',
   },
   files: {
     '& > h2': {
       fontSize: 28,
-      marginBottom: 0,
+      marginBottom: '1rem',
       '@media (max-width: 768px)': {
         fontSize: 22,
       },
     },
     '& > ul': {
+      marginTop: 0,
       '@media (max-width: 768px)': {
         padding: 0,
       },
     },
     '& > ul > li': {
-      '& span': {
-        fontSize: 24,
-        fontWeight: 500,
-        color: theme.palette.secondary.main,
-        marginRight: '1rem',
-      },
-      '& a': {
-        fontSize: 24,
-      },
       '@media (max-width: 768px)': {
         display: 'flex',
         flexDirection: 'column',
@@ -75,6 +67,15 @@ const useStyles = makeStyles((theme) => ({
         },
       },
     },
+  },
+  fileType: {
+    fontSize: 24,
+    fontWeight: 500,
+    color: theme.palette.secondary.main,
+    marginRight: '1rem',
+  },
+  file: {
+    fontSize: 24,
   },
 }));
 
