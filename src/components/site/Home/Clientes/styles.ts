@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: 1140,
     height: '100%',
+    '@media (max-width: 768px)': {
+      margin: '0 5%',
+    },
   },
   sectionTitle: {
     color: theme.palette.primary.main,
@@ -22,7 +25,29 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 36,
     },
   },
-  clientLogo: {
+  clientsPanelArea: {
+    width: '100%',
+    backgroundColor: '#fff',
+    marginTop: '1rem',
+    marginBottom: '3rem',
+    paddingBottom: '0.5rem',
+    borderRadius: '2rem',
+  },
+  clientsPanel: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '2rem 4rem',
+  },
+  logo: {
+    width: '100%',
+    maxWidth: 120,
+    height: 'auto',
+    marginRight: '3rem',
+    marginBottom: '2rem',
+  },
+  /* clientLogo: {
     width: '100%',
     maxWidth: 200,
     height: 'auto',
@@ -32,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 18,
     fontWeight: 500,
     color: theme.palette.primary.main,
-  },
+  }, */
 }));
 
 export default useStyles;

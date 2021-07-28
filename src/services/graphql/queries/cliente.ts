@@ -3,7 +3,7 @@ import { gql } from 'graphql-request';
 export const getClientes = gql`
   query GET_CLIENTES {
     clientes {
-      nome
+      id
       logo {
         url
         alternativeText
