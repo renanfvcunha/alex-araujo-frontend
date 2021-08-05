@@ -106,7 +106,7 @@ export default function Menu({ menu }: Menu) {
         <div className={classes.mainImage}>
           <a
             className={classes.imgButtons}
-            href={`https://wa.me/${menu.whatsapp}`}
+            href={`https://wa.me/55${menu.whatsapp}`}
             target="_blank"
             rel="external noreferrer noopener"
           >

@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import Header from '~/components/site/Header';
 import Menu from '~/components/site/Home/Menu';
@@ -49,7 +49,7 @@ export default function Home({ sitePrincipal, noticias, clientes }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { sitePrincipal } = await client.request(getSiteContent);
   const { noticias } = await client.request(getNoticias, {
     limit: 5,
@@ -65,6 +65,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { sitePrincipal, noticias, clientes },
-    revalidate: 1 * 60 * 60,
   };
 };
